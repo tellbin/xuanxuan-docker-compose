@@ -1,0 +1,76 @@
+version: "2"
+services:
+  # 音视频owt
+  owt:
+    # owt image download from:
+    # https://dl.cnezsoft.com/xuanxuan/owt/owt.1.1.docker.tar.xz
+    # https://pan.baidu.com/share/init?surl=2ockrQawlZE83tRhqvhPHA 提取码：nrdv
+    #
+    # 导入镜像教程
+    # $ docker load -i owt.1.1.docker.tar.xz
+    # Loaded image: owt:latest
+    #
+    # 查看镜像是否已导入
+    # $ docker images | grep owt
+    # owt                        latest              656e19a71f17        7 months ago        2.58GB
+    # 或者参考官方教程 https://www.xuanim.com/book/xuanxuanserver/64.html
+    image: owt:latest
+    container_name: owt
+    ports: 
+      - 8080:8080
+      - 13300:3300
+      - 13004:3004
+    environment:
+      # 宿主机的网卡IP或者外网可访问的IP
+      - OWT_IP=192.168.192.10
+        #volumes:
+            #- "./owt/data:/var/lib/mongodb"
+    restart: always
+  # xxc 
+  caddy:
+    image: abiosoft/caddy:latest
+    container_name: caddy
+    ports:
+      # xxc 宿主机端口11181，自行修改
+      - "11181:80"
+    environment:
+            - TZ=Asia/Shanghai
+            - agree
+            - email admin@qq.com
+    volumes:
+            - "./xxc/Caddyfile:/etc/Caddyfile"
+            - "./xxc/xxc.log:/var/log/caddy/localhost.log"
+            # https://www.xuanim.com/page/download.html
+            # 下载浏览器端部署包(.zip) 解压到xxc/xuanxuan-browser
+            - "./xxc/xuanxuan-browser:/srv"
+    restart: always
+  # xxb + xxc + mysql
+  xuan:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: xuan:v3.3
+    container_name: xuan
+    # if web response code: 310 ERR_TOO_MANY_REDIRECTS, please use host mode.
+    #    network_mode: "host"
+    ports:
+      # xxb 映射到宿主机端口11180，自行修改
+      # mysql 映射到宿主机端口13306，自行修改
+      # xxd 映射到宿主机端口11443，自行修改
+      # xxd 映射到宿主机端口11444，自行修改
+      - "11180:80"
+      - "13306:3306"
+      - "11443:11443"
+      - "11444:11444"
+    # mysql root account default password is '123456'.
+    # the ranzhi adminstrator account is 'admin',and init password is '123456'.
+    environment:
+    # specifies Adminer account and password for web login database.
+      # mysql 初始用户名和密码，自行修改
+      USER: "root"
+      PASSWD: "123456"
+      BIND_ADDRESS: "false"
+      #SMTP_HOST: "163.177.90.125 smtp.exmail.qq.com"
+    volumes:
+      - ./xxd:/opt/zbox/
+    restart: always
