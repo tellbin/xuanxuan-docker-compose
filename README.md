@@ -67,6 +67,22 @@ OWT ID:填上面的sampleServiceId
 OWT 密钥:填上面的sampleServiceKey
 ```
 
+# 喧喧浏览器版部署
+```
+~/xuanxuan-docker-compose$ wget -O xxc/xxc.zip https://dl.cnezsoft.com/xuanxuan/3.3/xuanxuan.3.3.browser.zip --no-check-certificate
+
+~/xuanxuan-docker-compose$ cd xxc
+
+~/xuanxuan-docker-compose/xxc$ sudo unzip xxc.zip
+```
+
+或者访问 https://www.xuanim.com/page/download.html  
+
+点击【浏览器端部署包（.zip）】  
+
+解压到xuanxuan-docker-compose/xxc/xuanxuan-browser/
+
+
 # 其它
 
 ### 查看所有日志
