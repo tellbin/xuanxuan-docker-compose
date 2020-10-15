@@ -1,9 +1,9 @@
 # 喧喧 docker-compose 部署
 
 ### 本实验环境：
-* wsl2：ubuntu 18.04
+* wsl2: ubuntu 18.04
 * docker: Docker version 19.03.7, build 7141c199a2
-* docker-compose docker-compose version 1.17.1, build unknown
+* docker-compose: docker-compose version 1.17.1, build unknown
 
 ### 喧喧官网
 https://www.xuanim.com
@@ -77,9 +77,7 @@ OWT 密钥:填上面的sampleServiceKey
 ```
 
 或者访问 https://www.xuanim.com/page/download.html  
-
 点击【浏览器端部署包（.zip）】  
-
 解压到xuanxuan-docker-compose/xxc/xuanxuan-browser/
 
 
@@ -88,11 +86,11 @@ OWT 密钥:填上面的sampleServiceKey
 ### 查看所有日志
 ```docker-compose logs```
 
-### 查看xuanxuan一键安装包的日志，如mysql账号密码：用户名root，密码为123456。
+### 查看xuanxuan一键安装包的日志
 ```docker-compose logs xuan```
 
 ### 相关端口说明：
-* 8080 owt音视频端口不可以占用
+* 8080 owt音视频端口，注意这个端口目前不可以更换及被其它进程占用，否则音视频会失败
 * 13004 owt音视频端口
 * 13300 owt音视频端口
 * 11443 xxd 消息服务器端口
