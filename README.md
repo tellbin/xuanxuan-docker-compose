@@ -1,5 +1,10 @@
 # 喧喧 docker-compose 部署
 
+### 本实验环境：
+* wsl2：ubuntu 18.04
+* docker: Docker version 19.03.7, build 7141c199a2
+* docker-compose docker-compose version 1.17.1, build unknown
+
 ### 喧喧官网
 https://www.xuanim.com
 
@@ -77,5 +82,5 @@ OWT 密钥:填上面的sampleServiceKey
 * 11443 xxd 消息服务器端口
 * 11444 xxd 消息服务器端口
 * 13306 mysql 初始用户名root，密码为123456。
-* 11180 xxb 喧喧后端 http://ip地址:11180/xxb，初始账号:admin，密码123456
+* 11180 xxb 喧喧后端 http://ip地址:11180/xxb 初始账号:admin，密码123456
 * 11181 xxc 浏览器端 http://ip地址:11181/
