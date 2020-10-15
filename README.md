@@ -1,12 +1,13 @@
 # 喧喧 docker-compose 部署
 
-### 本实验环境：
+### 实验环境：
 * wsl2: ubuntu 18.04
 * docker: Docker version 19.03.7, build 7141c199a2
 * docker-compose: docker-compose version 1.17.1, build unknown
 
 ### 喧喧官网
-https://www.xuanim.com
+https://www.xuanim.com  
+官方QQ群：367833155
 
 # STEP BY STEP
 ### 1. 克隆
