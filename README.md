@@ -3,6 +3,7 @@
 ### 喧喧官网
 https://www.xuanim.com
 
+# STEP BY STEP
 ### 1. 克隆
 ```git clone https://github.com/jiangslee/xuanxuan-docker-compose.git```
 
