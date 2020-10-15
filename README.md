@@ -1,3 +1,3 @@
 # 喧喧 docker-compose 部署
 
-请查看docker-compose.yml
+请查看docker-compose.yaml
