@@ -32,28 +32,27 @@ https://www.xuanim.com
 ### 8. 后台运行
 ```docker-compose up -d```
 
-### 更换为你宿主机IP
+### 9. 更换为你宿主机IP
 ```sudo sed -i 's/127.0.0.1/你的IP地址:11180/g' xxd/run/xxd/config/xxd.conf```
 
 * 或者访问http://你ip地址:11180，初始账号:admin，密码123456
 * 下载xxd配置文件xxd.conf，保存到xuanxuan-docker-compose/xxd/run/xxd/config/xxd.conf
 
-### 9. 停止并重新运行
+### 10. 停止并重新运行
 ```docker-compose down && docker-compose up -d```
-### 或者只重新运行xuan
+##### 或者只重新运行xuan
 ```docker-compose stop xuan && docker-compose start xuan```
 
 # 音视频配置
-### 查看音视频的 sampleServiceId、sampleServiceKey: 
+### 1. 获取音视频的 sampleServiceId、sampleServiceKey: 
 ```docker-compose logs owt | grep sample```
-### 登录xxb填写音视频信息
-
 ```
 ~/xuanxuan-docker-compose$ docker-compose  logs owt | grep sample
 owt      | sampleServiceId: 5f8843b********3cc757dc0
 owt      | sampleServiceKey: jG*********************************uH/s=
 owt      | sampleRoom Id: 5f8843c7099bcc0414c3c1de
 ```
+### 2.登录xxb填写音视频配置信息
 > http://你ip地址:11180 初始账号:admin，密码123456
 ```
 OWT 服务器地址:填你的IP地址
