@@ -45,7 +45,10 @@ https://www.xuanim.com
 * 下载xxd配置文件xxd.conf，保存到xuanxuan-docker-compose/xxd/run/xxd/config/xxd.conf
 
 ### 10. 停止并重新运行
-```docker-compose down && docker-compose up -d```
+```docker-compose restart```  
+
+~~docker-compose down && docker-compose up -d~~
+
 ##### 或者只重新运行xuan
 ~~docker-compose stop xuan && docker-compose start xuan~~  
 
