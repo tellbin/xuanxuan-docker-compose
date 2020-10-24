@@ -47,7 +47,10 @@ https://www.xuanim.com
 ### 10. 停止并重新运行
 ```docker-compose down && docker-compose up -d```
 ##### 或者只重新运行xuan
-```docker-compose stop xuan && docker-compose start xuan```
+~~docker-compose stop xuan && docker-compose start xuan~~  
+
+
+```docker-compose restart xuan```  
 
 # 音视频配置
 ### 1. 获取音视频的 sampleServiceId、sampleServiceKey: 
