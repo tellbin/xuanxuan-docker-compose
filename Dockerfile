@@ -17,10 +17,10 @@ COPY docker-entrypoint /usr/local/bin/docker-entrypoint
 RUN apt-get -y update \
     && apt-get install -y wget php-ldap libpng-dev vim net-tools unzip tar --no-install-recommends \
     && rm -r /var/lib/apt/lists/* \
-    && wget ${XUAN_URL} -O xuan.zip && mv xuan.tar.gz /tmp \
+    && wget ${XUAN_URL} --no-check-certificate -O xuan.zip && mv xuan.tar.gz /tmp \
     && chmod +x /usr/local/bin/docker-entrypoint
 
-HEALTHCHECK --start-period=20s --interval=45s --timeout=3s CMD wget http://localhost/ -O /dev/null || exit 1
+HEALTHCHECK --start-period=20s --interval=45s --timeout=3s CMD wget http://localhost:11180 -O /dev/null || exit 1
 
 EXPOSE 80 3306 11443 11444
 
