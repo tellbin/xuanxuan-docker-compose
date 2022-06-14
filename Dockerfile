@@ -14,8 +14,8 @@ ARG XUAN_URL=https://dl.cnezsoft.com/xuanxuan/${XUAN_VER}/${XUAN_FILE_NAME}
 
 COPY docker-entrypoint /usr/local/bin/docker-entrypoint
 
-RUN yum -y update \
-    && yum install -y wget php-ldap libpng-dev vim net-tools unzip tar --no-install-recommends \
+RUN apt-get -y update \
+    && apt-get install -y wget php-ldap libpng-dev vim net-tools unzip tar --no-install-recommends \
     && rm -r /var/lib/apt/lists/* \
     && wget ${XUAN_URL} -O xuan.zip && mv xuan.tar.gz /tmp \
     && chmod +x /usr/local/bin/docker-entrypoint
