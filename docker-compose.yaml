@@ -49,7 +49,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: xuan:v6.0.beta.bundle
+    image: xuan:latest
     container_name: xuan
     # if web response code: 310 ERR_TOO_MANY_REDIRECTS, please use host mode.
     #    network_mode: "host"
