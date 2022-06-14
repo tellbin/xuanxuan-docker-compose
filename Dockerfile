@@ -20,7 +20,7 @@ RUN apt-get -y update \
     && wget ${XUAN_URL} --no-check-certificate -O zbox.tar.gz && mv zbox.tar.gz /tmp \
     && chmod +x /usr/local/bin/docker-entrypoint
 
-HEALTHCHECK --start-period=20s --interval=45s --timeout=3s CMD wget http://localhost:11180 -O /dev/null || exit 1
+# HEALTHCHECK --start-period=20s --interval=45s --timeout=3s CMD wget http://localhost:11180 -O /dev/null || exit 1
 
 EXPOSE 80 3306 11443 11444
 
