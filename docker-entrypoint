@@ -8,16 +8,16 @@ if [ "${1:0:1}" == "-" ]; then
   zbox --help
 elif [ "$#" == "0" ]; then
   if [ ! -d "/opt/zbox" ]; then
-    #tar -zxf /tmp/zbox.tar.gz -C /opt/
-    unzip -o /tmp/xuan.zip -d /opt
+    tar -zxf /tmp/zbox.tar.gz -C /opt/
+    # unzip -o /tmp/xuan.zip -d /opt
     if [[ "${BIND_ADDRESS}" == [fF][aA][lL][sS][eE] ]] && [ -f "${MYSQL_CONFIG}" ]; then
       sed -Ei 's/^bind-address/#&/' ${MYSQL_CONFIG}
     fi
   else
     WORK_DIR=`ls /opt/zbox`
     if [ -z "${WORK_DIR}" ];then
-      #tar -zxf /tmp/zbox.tar.gz -C /opt/
-      unzip -o /tmp/xuan.zip -d /opt
+      tar -zxf /tmp/zbox.tar.gz -C /opt/
+      # unzip -o /tmp/xuan.zip -d /opt
       if [[ "${BIND_ADDRESS}" == [fF][aA][lL][sS][eE] ]] && [ -f "${MYSQL_CONFIG}" ]; then
         sed -Ei 's/^bind-address/#&/' ${MYSQL_CONFIG}
       fi
@@ -36,7 +36,7 @@ elif [ "$#" == "0" ]; then
   loop=1
   while [ ${loop} -eq 1 ]
   do
-    wget http://localhost/ -O /dev/null || exit 1
+    wget http://localhost:11180 -O /dev/null || exit 1
     sleep 30
   done
 else
